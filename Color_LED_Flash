@@ -1,0 +1,27 @@
+# -*- coding: utf-8 -*-
+import RPi.GPIO as GPIO
+import time
+
+COUNT = 5
+PIN1 = 17
+PIN2 = 18
+PIN3 = 27
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(PIN1,GPIO.OUT)
+GPIO.setup(PIN2,GPIO.OUT)
+GPIO.setup(PIN3,GPIO.OUT)
+
+for _ in xrange(COUNT):
+        GPIO.output(PIN1,True)
+        time.sleep(1)
+        GPIO.output(PIN1,False)
+        GPIO.output(PIN2,True)
+        time.sleep(1)
+        GPIO.output(PIN2,False)
+        GPIO.output(PIN3,True)
+        time.sleep(1)
+        GPIO.output(PIN1,False)
+        GPIO.output(PIN2,False)
+        GPIO.output(PIN3,False)
+        time.sleep(1)        
+GPIO.cleanup()
